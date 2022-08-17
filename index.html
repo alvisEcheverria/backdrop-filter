@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="normalize/normalize.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+    <title>TOBlur - alvisEcheverria</title>
+</head>
+
+<body>
+    <main>
+        <div class="display-container">
+            <div class="title-container">
+                <h1>
+                    B <br>
+                    l <br>
+                    u <br>
+                    r <br>
+                </h1>
+            </div>
+            <div class="square-behind">
+                <div class="blur">
+                    <div class="square "></div>
+                </div>
+            </div>
+            <div class="bgn-behind">
+                <div class="color">
+                    <p> 
+                        C <br>
+                        o <br>
+                        l <br>
+                        o <br>
+                        r <br>
+                    </p>
+                    <input class="font" type="color" value="">
+                </div>
+                <div class="bg-text">
+                    <p>Opacity</p>
+                    <input type="range" min="0" max="1" step="0.01" value="1" id="slider-opacity">
+                </div>
+                <div class="bg-text">
+                    <p>Blear</p>
+                    <input type="range" min="0" max="100" value="0" id="slider-blear">
+                </div>
+                <div class="bg-text">
+                    <p>Contrast</p>
+                    <input type="range" min="0" max="100" value="100" id="slider-constrast">
+                </div>
+                <div class="bg-text">
+                    <p>Saturation</p>
+                    <input type="range" min="0" max="100" value="50" id="slider-saturation">
+                </div>
+                <div class="bg-text">
+                    <p>Size</p>
+                    <input  type="range" min="0" max="50" value="25" id="slider-size">
+                </div>
+                <div class="bg-text">
+                    <p>Radio</p>
+                    <input  type="range" min="0" max="50" value="0" id="slider-radio">
+                </div>
+                <div id="bg-copy">
+                    <div class="bg-copy-text">
+                        <p class="bg-copy-text1"></p>
+                        <p class="bg-copy-text2"></p>
+                        <p class="bg-copy-text3"></p>
+                        <p class="bg-copy-text4"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>      
+</body>
+
+<script src="./scripts/app.js"></script>
+</html>
