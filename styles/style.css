@@ -11,7 +11,7 @@ body{
     box-sizing: border-box;
     height: 100vh;
     font-family: 'Monoton', cursive;
-    color: #ffff18;
+    color: #ffff18 ;
 
 }
 
@@ -34,6 +34,7 @@ p{
     justify-content: center;
     align-items: center;
     margin: 2rem 2rem;
+    margin-left: 0.5rem;
 }
 
 .title-container{
@@ -43,12 +44,30 @@ p{
     background-color: #f00e65a4;
     width: 15rem;
     height: 57rem;
-    border-radius: 1rem;
+    border-radius: 2rem;
     text-align: center; 
+    
+}
+
+.neon-color{
+    border: solid 0.5rem white;
+    box-shadow: inset 0rem 0 5px #ffff18 , inset 0 0 15px #ffff18, inset 0 0 30px #ffff18, inset 0 0 50px #ffff18, 0 0 50px #ffff18, 0 0 50px #ffff18, 0 0 20px #ffff18;
+    border-radius: 2rem;
+    width: 98%;
+    height: 100%;
+    animation: parpadear 2s infinite backwards;
+}
+
+@keyframes parpadear {
+    to{
+        border: solid 0.5rem gray;
+        box-shadow: 0 0 5px #ffff18;
+        color: gray;
+    }
 }
 
 .square-behind{
-    background-color: #17b2ffa4;
+    background-color: #17b2ff62;
     width: 53.8rem;
     height: 53.8rem;
     display: flex;
@@ -59,7 +78,8 @@ p{
 .square{
     background-color: rgb(45, 84, 174, 1);
     width: 25rem;
-    height: 25rem;  
+    height: 25rem;
+    border-radius: 2rem;  
 }
 
 .bgn-behind{
@@ -86,11 +106,30 @@ p{
     left: 39rem;
 }
 
+.bgn-behind::after{
+    content: "";
+    color: whitesmoke;
+    background-color: #5d5658ac;
+    width: 5rem;
+    height: 8rem;
+    border-radius: 0 2rem 2rem 0;
+    position: absolute;
+    top: 43.5rem;
+    left: 39rem;
+}
+
 .color{
     font-size: 2.5rem;
     position: absolute;
     left: 39.5rem;
     top: 4rem;  
+    animation: parpadearColor 2s infinite backwards;
+}
+
+@keyframes parpadearColor {
+    to{
+        color: gray;
+    }
 }
 
 input[type=color]{
@@ -123,7 +162,6 @@ input[type=range]{
     height: 10rem;
     color: #ffff18;
     border: solid 0.5rem #35b4cad8;
-    
 }
 
 .bg-copy-text{
@@ -139,4 +177,13 @@ input[type=range]{
 
 .bg-copy-text p{
     padding: 0.5rem 0;
+}
+
+.copy{
+    font-size: 1.5rem;
+    position: absolute;
+    left: 40rem;
+    top: 43rem;  
+    z-index: 1;
+    color: whitesmoke;
 }
