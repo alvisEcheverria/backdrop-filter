@@ -10,11 +10,9 @@ const   color = document.querySelector("input[type=color]"),
         bgCopy1 = document.querySelector(".bg-copy-text1"),
         bgCopy2 = document.querySelector(".bg-copy-text2"),
         bgCopy3 = document.querySelector(".bg-copy-text3"),
-        bgCopy4 = document.querySelector(".bg-copy-text4"),
         colorElement = document.createElement('p'),
         blurElement = document.createElement('p'),
-        contrastElement = document.createElement('p'),
-        satureElement = document.createElement('p');
+        radioElement = document.createElement('p');
 
 
 const displayColorNames = () => {
@@ -29,20 +27,20 @@ const displayColorNames = () => {
         rgb.push(hexToRGB);
     }
     
-    square.style.backgroundColor = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${rangeOpacity.value})`;
+square.style.backgroundColor = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${rangeOpacity.value})`;
 
-    color.addEventListener('input', () =>{
-    
-        colorElement.textContent = `background-color: rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${rangeOpacity.value});`;
-        bgCopy1.appendChild(colorElement);
-    });
-    
-    rangeOpacity.addEventListener('input', (event) =>{
-    
-        colorElement.textContent = `background-color: rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${event.target.value};)`;
-        bgCopy1.appendChild(colorElement);
-    });
-    
+color.addEventListener('input', () =>{
+
+    colorElement.textContent = `background-color: rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${rangeOpacity.value});`;
+    bgCopy1.appendChild(colorElement);
+});
+
+rangeOpacity.addEventListener('input', (event) =>{
+
+    colorElement.textContent = `background-color: rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${event.target.value};)`;
+    bgCopy1.appendChild(colorElement);
+});
+
 };
 
 color.addEventListener('input', displayColorNames); 
@@ -57,8 +55,8 @@ rangeOpacity.addEventListener('input', event =>{
 rangeBlear.addEventListener('input', event =>{
 
     let valor = event.target.value;
-    blur.style.backdropFilter = `blur(${valor}px)`;
-    blurElement.textContent = `backdrop-filter: blur(${valor}px);`;
+    blur.style.backdropFilter = `blur(${valor}px) contrast(${rangeContrast.value}%) saturate(${rangeSaturation.value}%)`;
+    blurElement.textContent = `backdrop-filter: blur(${valor}px) contrast(${rangeContrast.value}%) saturate(${rangeSaturation.value}%);`;
     bgCopy2.appendChild(blurElement);
 
 });
@@ -66,18 +64,18 @@ rangeBlear.addEventListener('input', event =>{
 rangeContrast.addEventListener('input', event =>{
 
     let valor = event.target.value;
-    blur.style.backdropFilter = `contrast(${valor}%)`;
-    contrastElement.textContent = `backdrop-filter: contrast(${valor}%);`;
-    bgCopy3.appendChild(contrastElement);
+    blur.style.backdropFilter = `blur(${rangeBlear.value}px) contrast(${valor}%) saturate(${rangeSaturation.value}%)`;
+    blurElement.textContent = `backdrop-filter: blur(${rangeBlear.value}px) contrast(${valor}%) saturate(${rangeSaturation.value}%);`;
+    bgCopy2.appendChild(blurElement);
 
 });
 
 rangeSaturation.addEventListener('input', event =>{
 
     let valor = event.target.value;
-    blur.style.backdropFilter = `saturate(${valor}%)`;
-    satureElement.textContent = `backdrop-filter: sature(${valor}%);`;
-    bgCopy4.appendChild(satureElement);
+    blur.style.backdropFilter = `blur(${rangeBlear.value}px) contrast(${rangeContrast.value}%) saturate(${valor}%)`;
+    blurElement.textContent = `backdrop-filter: blur(${rangeBlear.value}px) contrast(${rangeContrast.value}%) saturate(${valor}%);`;
+    bgCopy2.appendChild(blurElement);
 
 });
 
@@ -92,7 +90,10 @@ rangeSize.addEventListener('input', event =>{
 rangeRadio.addEventListener('input', event =>{
 
     let valor = event.target.value;
+    blur.style.borderRadius = `${valor}%`;
     square.style.borderRadius = `${valor}%`;
+    radioElement.textContent = `border-radius: ${valor}%;`;
+    bgCopy3.appendChild(radioElement);
     
 });
 
