@@ -37,7 +37,7 @@ color.addEventListener('input', () =>{
 
 rangeOpacity.addEventListener('input', (event) =>{
 
-    colorElement.textContent = `background-color: rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${event.target.value};)`;
+    colorElement.textContent = `background-color: rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${event.target.value});`;
     bgCopy1.appendChild(colorElement);
 });
 
